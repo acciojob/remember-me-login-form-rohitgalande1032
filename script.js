@@ -10,9 +10,9 @@ document.getElementById("submit").addEventListener("click",() => {
 		localStorage.setItem("password", password.value)
 		alert(`Logged in as ${localStorage.getItem("username")}`)
 	}else{
-		
 		localStorage.removeItem("username");
-		localStorage.removeItem("password")
+		localStorage.removeItem("password");
+		localStorage.clear();
 	}
 	
 })
