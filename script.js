@@ -9,20 +9,20 @@ document.getElementById("submit").addEventListener("click",() => {
 		localStorage.setItem("username", username.value);
 		localStorage.setItem("password", password.value)
 	}else{
+		alert(`Logged in as ${localStorage.getItem("username")}`)
 		localStorage.removeItem("username");
 		localStorage.removeItem("password")
-		alert("Logged in as.")
 	}
 	
 })
 
 if(localStorage.getItem("username") && localStorage.getItem("password")){
 	document.getElementById("form").innerHTML += `
-		<input onclick="showAlert()" type="submit" id="existing" value="Login as existing user.">
+		<button onclick="showAlert()" type="submit" id="existing">Login as existing user.</button>
 	`
 }
 
 function showAlert() {
-	alert("Logged in as.")
+	alert(`Logged in as ${localStorage.getItem("username")}`)
 }
 
