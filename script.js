@@ -5,18 +5,18 @@ document.getElementById("submit").addEventListener("click",() => {
 	let checkbox = document.getElementById("checkbox");
 
 	
-	let userObj = {Username: username.value, Password: password.value}
-	console.log(userObj)
 	if(checkbox.checked) {
-		localStorage.setItem("userObj", JSON.stringify(userObj))
+		localStorage.setItem("username", username.value);
+		localStorage.setItem("password", password.value)
 	}else{
-		localStorage.removeItem("userObj");
+		localStorage.removeItem("username");
+		localStorage.removeItem("password")
 		alert("Logged in as.")
 	}
 	
 })
 
-if(localStorage.getItem("userObj")){
+if(localStorage.getItem("username") && localStorage.getItem("password")){
 	document.getElementById("form").innerHTML += `
 		<input onclick="showAlert()" type="submit" id="existing" value="Login as existing user.">
 	`
