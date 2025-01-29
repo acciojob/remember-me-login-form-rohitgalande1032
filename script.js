@@ -13,8 +13,7 @@ document.getElementById("submit").addEventListener("click",(event) => {
 
 	
 	if (checkbox.checked) {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
+        // Do not store the username and password in localStorage
         alert(`Logged in as ${username}`);
     } else {
         localStorage.removeItem("username");
