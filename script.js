@@ -1,9 +1,5 @@
 //your JS code here. If required.
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("username")?.trim() && localStorage.getItem("password")?.trim()) {
-        document.getElementById("existing").style.display = "block";
-    }
-});
+
 
 document.getElementById("submit").addEventListener("click",(event) => {
 	event.preventDefault();
@@ -13,7 +9,8 @@ document.getElementById("submit").addEventListener("click",(event) => {
 
 	
 	if (checkbox.checked) {
-        // Do not store the username and password in localStorage
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
         alert(`Logged in as ${username}`);
     } else {
         localStorage.removeItem("username");
@@ -27,8 +24,14 @@ document.getElementById("submit").addEventListener("click",(event) => {
     } else {
         document.getElementById("existing").style.display = "none";
     }
-	
+
+	username="";
+	password="";
 })
+
+if (localStorage.getItem("username")?.trim() && localStorage.getItem("password")?.trim()) {
+    document.getElementById("existing").style.display = "block";
+}
 
 function showAlert() {
 	alert(`Logged in as ${localStorage.getItem("username")}`)
